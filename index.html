@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ''">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>LulamaNsizwaZondo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .section {
+            opacity: 0; /* Initially hidden */
+            transition: opacity 1s ease-in-out;
+        }
+
+        .section.visible {
+            opacity: 1; /* Show when scrolled into view */
+        }
+
+
+        /* General Reset and Body Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9; /* Softened background color */
+            color: #333;
+        }
+
+        /* Headings Styling */
+        h2, h3, h4 {
+            font-weight: 600;
+            color: #d84c5e; /* Slightly lighter crimson color */
+        }
+
+        /* General Paragraph Styling */
+        p, ul {
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #2c2f30;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .pic-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .pic {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 1rem;
+        }
+
+        .pic-container img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .pic-container img:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+        }
+
+        /* Bio Section */
+        .bio {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 70%;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        .bio:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .bio h2 {
+            color: #d84c5e;
+        }
+
+        /* Skills Section */
+        .skills {
+            margin: 0 20rem;
+            max-width: 500%;
+        }
+
+        .skills ul {
+            list-style-type: square;
+            padding-left: 3rem;
+        }
+
+        .skills h3 {
+            margin-bottom: 2rem;
+        }
+
+        /* Experience , Education & Certificate Containers */
+        .experience-container, .certificate-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 5rem 2rem;
+        }
+
+        .experience, .certificate {
+            max-width: 45%;
+            text-align: left;
+        }
+
+        .education-container {
+            justify-content: space-between;
+            margin-left: 40rem;
+        }
+
+        .experience {
+            padding: 0rem 1rem;  /* Increase padding for better spacing */
+            margin-top: 20px;  
+            color: black;
+            border: none;
+            border-radius: 8px;  /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
+        }
+
+        .certificate {
+            padding: 12px 20px;  /* Increase padding for better spacing */
+            margin-top: 20px;   
+            color: black;
+            border: none;
+            border-radius: 8px;  /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #2c2f30;
+            color: white;
+            padding: 1rem 10rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 10rem;
+            margin: 9rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin: 8px 0;
+        }
+
+        .footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #0077b5;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        .submit button {
+            padding: 12px 20px;  /* Increase padding for better spacing */
+            margin-top: 20px;
+            background-color: #d84c5e;
+            color: white;
+            border: none;
+            border-radius: 8px;  /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
+        }
+
+        .submit button:hover {
+            background-color: #b73547;  /* Darken background on hover */
+            transform: scale(1.05);  /* Slight scale effect on hover */
+        }
+
+        .submit button:active {
+            transform: scale(0.98);  /* Button presses down when clicked */
+            background-color: #a52a37;  /* Slightly darker shade on active click */
+        }
+
+        .submit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        .certificate button {
+            padding: 12px 20px;  /* Increase padding for better spacing */
+            margin-top: 20px;
+            background-color: #d84c5e;
+            color: white;
+            border: none;
+            border-radius: 8px;  /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;    
+        }
+
+        .certificate button:hover {
+            background-color: #b73547;  /* Darken background on hover */
+            transform: scale(1.05);  /* Slight scale effect on hover */   
+        }
+
+        .certificate button:active {
+            transform: scale(0.98);  /* Button presses down when clicked */
+            background-color: #a52a37;  /* Slightly darker shade on active click */   
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 10px;
+            background: #111;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .pic-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+
+            .experience, .certificate {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Lulama Nsizwa Zondo</h1>
+        <h3>Web Developer</h3>
+        <div class="pic-container">
+            <img src="Screenshot_20240621_225403_Gallery.jpg" alt="Profile picture" class="pic">
+            <video width="400" height="500" controls autoplay muted loop>
+                <source src="VID_219180607_040713_290.mp4" type="video/mp4">
+            </video>
+            <img src="Screenshot_20240621_225457_Gallery.jpg" alt="Additional image" class="pic">
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+        <section class="bio-container">
+        <section class="bio">
+            <h2>Bio</h2>
+            <p>A motivated Information Technology graduate with expertise in IT support, service implementation, inventory management, and cloud computing. I have a solid foundation in Microsoft 365 and troubleshooting, with a passion for optimizing digital solutions. I led a digital strategy project for Mugg & Bean, developing mobile ordering and marketing strategies. Holding a Microsoft Azure Certification, I am eager to apply my skills in IT operations, warehousing, and logistics.</p>
+        </section>
+        </section>
+
+        <section class="section">
+        <section class="skills">
+            <h2>Skills</h2>
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>IT Operations: User support, desktop & laptop support, first-line troubleshooting, workstation configuration</li>
+                <li>Software & Tools: Microsoft O365, Visual Studio Code, NetBeans, MongoDB, SQL</li>
+                <li>Operating Systems: Windows, Linux, macOS</li>
+                <li>Programming: Java, Python, SQL</li>
+                <li>Web Development: HTML, CSS, JavaScript, PHP</li>
+                <li>Cloud Infrastructure: Microsoft Azure (Virtual Machines, Networking, Storage, Security)</li>
+            </ul>
+
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Strong communication skills for effective interaction with teams</li>
+                <li>Goal-driven and self-motivated</li>
+                <li>Team collaboration and adaptability</li>
+                <li>Time management and multitasking</li>
+            </ul>
+        </section> 
+        </section>   
+        </section>
+
+        <section class="section">
+        <section class="experience-container">
+            <div class="experience">
+                <h2>Experience</h2>
+                <h3>Work Integrated Learning (WIL) Project - Final Year at Rosebank College</h3>
+                <ul>
+                    <li>Led a team of four in developing digital strategies to enhance sales at Mugg & Bean</li>
+                    <li>Conducted market research to analyze customer behavior and identify key improvement areas</li>
+                    <li>Developed digital solutions such as rewards programs and mobile ordering integration</li>
+                    <li>Achieved a 92% project score, strengthening leadership and problem-solving skills</li>
+                </ul>
+            </div>
+        </section>    
+        </section>
+
+        <section class="section">
+        <section class="education-container">
+        <div class="education">
+            <h2>Education</h2>
+            <h3>Bachelor of Information Technology in Busieness Systems (NQF Level 7)</h3>
+            <h4>IIE Rosebank College | 03.2021 - 11.2024</h4>
+            <ul>
+                <li>Business & Systems Analysis</li>
+                <li>Busieness Information Systems</li>
+                <li>Programming (Java, Python & SQL)</li>
+                <li>Web Development (HTML, CSS, JavaScript & PHP)</li>
+                <li>Databases (MongoDB & SQL)</li>
+            </ul>
+            <h3>Matric (NQF Level 4)</h3>
+            <h4>Estcourt High School | Completed: 2020</h4>
+        </div>
+        </section>
+        </section>
+
+        <section class="section">
+        <section class="certificate-container">
+            <div class="certificate">
+                <h2>Certifications</h2>
+                <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+                <h4>Acquired: 07.01.2025</h4>
+                <ul>
+                    <li>Cloud Concepts</li>
+                    <li>Core Azure Services</li>
+                    <li>Security and Network Features</li>
+                </ul>
+                <button onclick="window.location.href='https://learn.microsoft.com/api/credentials/share/en-us/LulamaZondo-6313/8E36FB44A1F43AAB?sharingId=9DB27A10A8464272'">View Certificate</button>
+            </div>
+        </section>    
+        </section>
+
+        <footer>
+            <div class="footer">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <ul>
+                        <li>Phone: (+27) 63 068 8284</li>
+                        <li>Email: <a href="mailto:zondolulama49@gmail.com">zondolulama49@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Let's Connect</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/lulama-zondo-298190337/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section submit">
+                    <h3>Contact Me</h3>                
+                    <button onclick="window.location.href='mailto:zondolulama49@gmail.com'">Contact</button>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; Lulama's Personal Website. All Rights Reserved.
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        
+
+    /*Create an Intersection Observer instance*/
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Check if the section is in the viewport
+            if (entry.isIntersecting) {
+                // Add the 'visible' class to the section
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing the section once it's visible
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger the animation when 50% of the section is in view
+    });
+
+    // Target all sections you want to animate
+    const sections = document.querySelectorAll('.section');
+    
+    // Observe each section
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
+
+    </script>
+</body>
+</html>
