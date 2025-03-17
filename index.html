@@ -2,19 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ''">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>LulamaNsizwaZondo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .section {
+            opacity: 0; /* Initially hidden */
+            transition: opacity 1s ease-in-out;
+        }
+
+        .section.visible {
+            opacity: 1; /* Show when scrolled into view */
+        }
+
+
         /* General Reset and Body Styling */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f4f4f9; /* Softened background color */
             color: #333;
+        }
+
+        /* Headings Styling */
+        h2, h3, h4 {
+            font-weight: 600;
+            color: #d84c5e; /* Slightly lighter crimson color */
+        }
+
+        /* General Paragraph Styling */
+        p, ul {
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         /* Header Styling */
@@ -27,16 +55,13 @@
 
         header h1 {
             font-size: 2.5rem;
-            color: #d84c5e;
         }
 
         header h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: #d84c5e;
         }
 
-        /* Picture container styling */
         .pic-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -48,6 +73,7 @@
         .pic {
             width: 100%;
             height: auto;
+            max-width: 100%;
             border-radius: 1rem;
         }
 
@@ -56,8 +82,8 @@
         }
 
         .pic-container img:hover {
-            transform: scale(1.1);
-            filter: brightness(1.1);
+        transform: scale(1.1);
+        filter: brightness(1.1);
         }
 
         /* Bio Section */
@@ -83,9 +109,8 @@
 
         /* Skills Section */
         .skills {
-            margin: 0 auto;
-            padding: 2rem;
-            max-width: 900px;
+            margin: 0 20rem;
+            max-width: 500%;
         }
 
         .skills ul {
@@ -94,38 +119,53 @@
         }
 
         .skills h3 {
-            color: #b73547;
-        }
-        /* Experience and Education */
-        .experience-container, .certificate-container, .education-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 2rem;
-        }
-
-        .experience, .certificate, .education {
-            max-width: 45%;
-            text-align: left;
             margin-bottom: 2rem;
         }
 
-        .experience h3, .certificate h3, .education h3 {
-            margin-top: 1rem;
-            color: #b73547;
+        /* Experience , Education & Certificate Containers */
+        .experience-container, .certificate-container, .project-container{
+            display: flex;
+            justify-content: space-between;
+            padding: 5rem 2rem;
         }
 
-        .experience ul, .certificate ul, .education ul {
-            list-style-type: square;
-            padding-left: 2rem;
+        .experience, .certificate, .project1 {
+            max-width: 45%;
+            text-align: left;
         }
 
+        .education-container {
+            justify-content: space-between;
+            margin-left: 40rem;
+        }
 
-        /* Footer */
+        .experience {
+            padding: 0rem 1rem;  /* Increase padding for better spacing */
+            margin-top: 20px;  
+            color: black;
+            border: none;
+            border-radius: 8px;  /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
+        }
+
+        .certificate {
+            padding: 12px 20px;  /* Increase padding for better spacing */
+            margin-top: 20px;   
+            color: black;
+            border: none;
+            border-radius: 8px;  /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
+        }
+
+        /* Footer Styling */
         .footer {
             background-color: #2c2f30;
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem 10rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -135,7 +175,7 @@
         .footer-section {
             flex: 1;
             min-width: 10rem;
-            margin: 1rem;
+            margin: 9rem;
         }
 
         .footer h3 {
@@ -164,47 +204,76 @@
         }
 
         .submit button {
-            padding: 12px 20px;
+            padding: 12px 20px;  /* Increase padding for better spacing */
             margin-top: 20px;
             background-color: #d84c5e;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 8px;  /* Rounded corners */
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover effect */
         }
 
         .submit button:hover {
-            background-color: #b73547;
-            transform: scale(1.05);
+            background-color: #b73547;  /* Darken background on hover */
+            transform: scale(1.05);  /* Slight scale effect on hover */
         }
 
         .submit button:active {
-            transform: scale(0.98);
-            background-color: #a52a37;
+            transform: scale(0.98);  /* Button presses down when clicked */
+            background-color: #a52a37;  /* Slightly darker shade on active click */
+        }
+
+        .submit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
         }
 
         .certificate button {
-            padding: 12px 20px;
+            padding: 12px 20px;  /* Increase padding for better spacing */
             margin-top: 20px;
             background-color: #d84c5e;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 8px;  /* Rounded corners */
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;    
         }
 
         .certificate button:hover {
-            background-color: #b73547;
-            transform: scale(1.05);
+            background-color: #b73547;  /* Darken background on hover */
+            transform: scale(1.05);  /* Slight scale effect on hover */   
         }
 
         .certificate button:active {
-            transform: scale(0.98);
-            background-color: #a52a37;
+            transform: scale(0.98);  /* Button presses down when clicked */
+            background-color: #a52a37;  /* Slightly darker shade on active click */   
+        }
+
+        .project1 button {
+            padding: 12px 20px;  /* Increase padding for better spacing */
+            margin-top: 20px;
+            background-color: #d84c5e;
+            color: white;
+            border: none;
+            border-radius: 8px;  /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;    
+        }
+
+        .project1 button:hover {
+            background-color: #b73547;  /* Darken background on hover */
+            transform: scale(1.05);  /* Slight scale effect on hover */   
+        }
+
+        .project1 button:active {
+            transform: scale(0.98);  /* Button presses down when clicked */
+            background-color: #a52a37;  /* Slightly darker shade on active click */   
         }
 
         .copyright {
@@ -214,7 +283,6 @@
             color: white;
         }
 
-        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .pic-container {
                 grid-template-columns: 1fr;
@@ -224,67 +292,11 @@
                 flex-direction: column;
             }
 
-            .experience, .certificate, .education {
+            .experience, .certificate {
                 max-width: 100%;
-            }
-
-            /* Footer sections stacking for smaller screens */
-            .footer-section {
-                margin: 10px 0;
-            }
-
-            /* Bio section adjustments */
-            .bio {
-                max-width: 90%;
-            }
-
-            /* Skills section adjustments */
-            .skills {
-                max-width: 100%;
-                padding: 1rem;
-            }
-
-            .submit button {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header h3 {
-                font-size: 1.2rem;
-            }
-
-            .footer {
-                padding: 1rem;
-            }
-
-            .footer h3 {
-                font-size: 1rem;
-            }
-
-            .footer ul li {
-                font-size: 0.9rem;
-            }
-
-            .social-icons a {
-                font-size: 24px;
-            }
-
-            .pic-container img {
-                width: 90%;
-            }
-
-            .pic-container {
-                grid-template-columns: 1fr;
             }
         }
     </style>
-</head>
-
 </head>
 
 <body>
@@ -368,6 +380,23 @@
         </section>
 
         <section class="section">
+            <section class="project-container">
+                <div class="project1">
+                    <h2>Projects</h2>
+                    <h3>Restuarant Website (Durban Exclusive Foods)</h3>
+                    <ul>
+                        <li>Designed and developed a demo-dynamic website for Durban Exclusive Foods, enhancing user engagement with a visially appealing slideshow, detailed menu and interactive features</li>
+                        <li>Implemented a seamless navigation experience, including location mapping and concact integration, to improve customer accessibility and convenience</li>
+                        <li>Created a digital presence by showcasing authentic African cuisine, a vibrant lounge atmosphere, and entertaining options</li>
+                        <li>Integrated social media links and promotional updates to boost online visibility and customer interaction</li>
+                        <li>Built the site using HTML, CSS and JavaScript, then hosted it using GitHub pages</li>
+                    </ul>
+                    <button onclick="window.location.href='https://github.com/NsizwaZondo/restaurant-demo.git'">View Website</button>
+                </div>
+            </section>
+        </section>
+
+        <section class="section">
         <section class="certificate-container">
             <div class="certificate">
                 <h2>Certifications</h2>
@@ -441,3 +470,4 @@
     </script>
 </body>
 </html>
+
