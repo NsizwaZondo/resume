@@ -116,22 +116,112 @@
       transform: scale(1.05);
     }
 
-    footer {
-      background-color: #1e1e2f;
-      color: white;
-      padding: 2rem 1.5rem;
-      text-align: center;
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      background: #2d2d44;
+      color: #eee;
+      border-top: 5px solid #d84c5e;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.7rem;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .footer-section i {
+      margin-right: 10px;
+      color: #d84c5e;
     }
 
     .social-icons a {
-      color: #fff;
-      margin: 0 10px;
-      font-size: 24px;
-      transition: color 0.3s;
+      font-size: 1.7rem;
+      margin-right: 15px;
+      color: #eee;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .social-icons a:hover {
       color: #d84c5e;
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      background: #1a1a2e;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #444;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem 2rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f2f5;
+      transition: box-shadow 0.3s, background-color 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #d84c5e;
+      background-color: #fff;
+    }
+
+    .contact-form button {
+      background-color: #d84c5e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      width: 100%;
+    }
+
+    .contact-form button:hover {
+      background-color: #c13749;
+      transform: scale(1.03);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-form textarea:focus {
+      box-shadow: 0 0 0 2px #d84c5e, inset 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     @media (max-width: 768px) {
@@ -211,13 +301,43 @@
   </section>
 
   <footer>
-    <p>Contact: zondolulama49@gmail.com | (+27) 63 068 8284</p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/lulama-zondo-298190337/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/NsizwaZondo" target="_blank"><i class="fab fa-github"></i></a>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Send a Message</h3>
+        <div class="footer-section contact-card">
+          <form id="contact-form">
+            <input type="text" name="user_name" placeholder="Your Name" required />
+            <input type="email" name="user_email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+        
+      </div>
+  
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> zondolulama49@gmail.com</li>
+          <li><i class="fas fa-phone"></i> (+27) 63 068 8284</li>
+          <li><i class="fas fa-map-marker-alt"></i> South Africa</li>
+        </ul>
+      </div>
+  
+      <div class="footer-section">
+        <h3>Connect with Me</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/lulama-zondo-298190337/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/NsizwaZondo" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
     </div>
-    <p>&copy; 2025 Lulama Nsizwa Zondo</p>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lulama Nsizwa Zondo. All rights reserved.</p>
+    </div>
   </footer>
+
 </body>
 </html>
 
