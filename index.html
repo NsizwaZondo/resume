@@ -3,131 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lulama Nsizwa Zondo | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>Lulama Nsizwa Zondo | Web Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Reset & Basics */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    body, html {
+    body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f0f0f5, #fff);
+      background: #f4f4f9;
       color: #333;
       line-height: 1.6;
     }
 
+    h2, h3 {
+      color: #d84c5e;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
     header {
-      background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+      background: linear-gradient(135deg, #2c2f30, #1f1f1f);
       color: white;
       text-align: center;
-      padding: 4rem 2rem 2rem;
+      padding: 2rem 1rem;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
 
     header h3 {
-      font-size: 1.5rem;
       font-weight: 400;
-      color: #d6d6f5;
     }
 
     .pic-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      flex-wrap: wrap;
-      padding: 2rem;
+      margin-top: 2rem;
     }
 
-    .pic-container img,
-    .pic-container video {
-      border-radius: 20px;
-      max-width: 300px;
-      max-height: 200px;
-      width: 100%;
+    .pic-container img, .pic-container video {
+      border-radius: 1rem;
+      width: 300px;
+      max-width: 100%;
       object-fit: cover;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
 
-    .pic-container img:hover,
-    .pic-container video:hover {
+    .pic-container img:hover, .pic-container video:hover {
       transform: scale(1.05);
     }
 
+    /* Sections */
     section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
+      padding: 2rem 10%;
     }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #333;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background-color: #d84c5e;
-    }
-
-    .bio, .skills, .education, .experience, .project, .certificate {
-      background-color: white;
+    .bio, .project1, .certificate, .experience, .education {
+      background: white;
+      border-radius: 1rem;
       padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
       margin-bottom: 2rem;
     }
 
     ul {
-      padding-left: 1.2rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
+      margin-left: 1.2rem;
     }
 
     button {
-      padding: 0.75rem 1.5rem;
-      background-color: #d84c5e;
+      background: #d84c5e;
       color: white;
       border: none;
-      border-radius: 10px;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
       font-size: 1rem;
-      margin-top: 1rem;
-      transition: background-color 0.3s, transform 0.2s;
       cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
     }
 
     button:hover {
-      background-color: #c13749;
-      transform: scale(1.05);
+      background: #b73547;
     }
 
+    /* Footer */
     footer {
-      background-color: #1e1e2f;
+      background: #2c2f30;
       color: white;
-      padding: 2rem 1.5rem;
-      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
     }
 
     .social-icons a {
-      color: #fff;
-      margin: 0 10px;
-      font-size: 24px;
+      margin-right: 10px;
+      font-size: 1.5rem;
+      color: #0077b5;
       transition: color 0.3s;
     }
 
@@ -135,12 +143,39 @@
       color: #d84c5e;
     }
 
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
+      section {
+        padding: 2rem 5%;
       }
 
-      .pic-container {
+      .footer-grid {
         flex-direction: column;
         align-items: center;
       }
@@ -148,79 +183,115 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>Lulama Nsizwa Zondo</h1>
     <h3>Web Developer</h3>
+    <div class="pic-container">
+      <img src="Screenshot_20240621_225403_Gallery.jpg" alt="Profile picture" />
+      <video width="300" controls autoplay muted loop>
+        <source src="VID_219180607_040713_290.mp4" type="video/mp4">
+      </video>
+      <img src="Screenshot_20240621_225457_Gallery.jpg" alt="Additional image" />
+    </div>
   </header>
 
-  <div class="pic-container">
-    <img src="Screenshot_20240621_225403_Gallery.jpg" alt="Profile picture">
-    <video src="VID_219180607_040713_290.mp4" autoplay muted loop controls></video>
-    <img src="Screenshot_20240621_225457_Gallery.jpg" alt="Additional image">
-  </div>
+  <main>
+    <section class="bio">
+      <h2>Bio</h2>
+      <p>Detail-oriented and highly motivated IT graduate with a solid foundation in software development, web technologies and network administration. Skilled in problem-solving, troubleshooting, and collaborating with cross-functional teams. Passionate about leveraging emerging technologies to solve real-world challenges. Adaptable, quick to learn, and committed to delivering high-quality results in dynamic environments.</p>
+    </section>
 
-  <section class="bio">
-    <h2 class="section-title">About Me</h2>
-    <p>Detail-oriented IT graduate with strong skills in web development and a passion for solving real-world problems through technology. Adept in modern tools and collaborative team environments.</p>
-  </section>
+    <section class="skills">
+      <h2>Skills</h2>
+      <h3>Technical</h3>
+      <ul>
+        <li>IT Operations, O365, VS Code, MongoDB, SQL</li>
+        <li>Operating Systems: Windows, Linux, macOS</li>
+        <li>Languages: Java, Python, SQL, HTML, CSS, JS, PHP</li>
+        <li>Azure: VM, Networking, Storage, Security</li>
+      </ul>
+      <h3>Soft Skills</h3>
+      <ul>
+        <li>Strong communication, Teamwork, Time Management</li>
+      </ul>
+    </section>
 
-  <section class="skills">
-    <h2 class="section-title">Skills</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript, PHP</li>
-      <li>Java, Python, SQL</li>
-      <li>Windows, Linux, macOS</li>
-      <li>Azure Cloud, Microsoft 365</li>
-      <li>Communication, Teamwork, Problem Solving</li>
-    </ul>
-  </section>
+    <section class="experience">
+      <h2>Experience</h2>
+      <h3>WIL Project – Rosebank College</h3>
+      <ul>
+        <li>Led a team to develop digital strategies for Mugg & Bean</li>
+        <li>Implemented rewards programs and mobile ordering</li>
+        <li>Achieved 92% score; strengthened leadership and dev skills</li>
+      </ul>
+    </section>
 
-  <section class="experience">
-    <h2 class="section-title">Experience</h2>
-    <p><strong>WIL Project - Mugg & Bean (2024)</strong></p>
-    <ul>
-      <li>Led development of customer retention strategies.</li>
-      <li>Proposed tech-based solutions like rewards systems and app ordering.</li>
-    </ul>
-  </section>
+    <section class="education">
+      <h2>Education</h2>
+      <h3>Bachelor of IT in Business Systems</h3>
+      <h4>Rosebank College | 2021 - 2024</h4>
+      <ul>
+        <li>Business Systems, Web & DB Development, Programming</li>
+      </ul>
+      <h3>Matric</h3>
+      <h4>Estcourt High School | 2020</h4>
+    </section>
 
-  <section class="education">
-    <h2 class="section-title">Education</h2>
-    <p><strong>Bachelor of Information Technology in Business Systems</strong></p>
-    <p>Rosebank College | 2021 - 2024</p>
-    <ul>
-      <li>Programming (Java, Python)</li>
-      <li>Web Dev (HTML, CSS, JS, PHP)</li>
-    </ul>
-  </section>
+    <section class="project1">
+      <h2>Project</h2>
+      <h3>Restaurant Website (Durban Exclusive Foods)</h3>
+      <ul>
+        <li>Built a dynamic restaurant website with menus, maps & social links</li>
+        <li>Improved user engagement through UI and smooth nav</li>
+        <li>Tech used: HTML, CSS, JS, GitHub Pages</li>
+      </ul>
+      <button onclick="window.location.href='https://nsizwazondo.github.io/restaurant-demo/'">View Website</button>
+    </section>
 
-  <section class="project">
-    <h2 class="section-title">Projects</h2>
-    <p><strong>Durban Exclusive Foods - Restaurant Website</strong></p>
-    <ul>
-      <li>Responsive design with interactive menu and slideshow.</li>
-      <li>Integrated Google Maps and contact form.</li>
-    </ul>
-    <button onclick="window.location.href='https://nsizwazondo.github.io/restaurant-demo/'">View Project</button>
-  </section>
-
-  <section class="certificate">
-    <h2 class="section-title">Certifications</h2>
-    <p><strong>Microsoft Azure Fundamentals (AZ-900)</strong></p>
-    <p>Issued: Jan 2025</p>
-    <button onclick="window.location.href='https://learn.microsoft.com/api/credentials/share/en-us/LulamaZondo-6313/8E36FB44A1F43AAB?sharingId=9DB27A10A8464272'">View Certificate</button>
-  </section>
+    <section class="certificate">
+      <h2>Certifications</h2>
+      <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+      <h4>Issued: Jan 2025</h4>
+      <ul>
+        <li>Cloud Concepts, Core Services, Security & Networking</li>
+      </ul>
+      <button onclick="window.location.href='https://learn.microsoft.com/api/credentials/share/en-us/LulamaZondo-6313/8E36FB44A1F43AAB?sharingId=9DB27A10A8464272'">View Certificate</button>
+    </section>
+  </main>
 
   <footer>
-    <p>Contact: zondolulama49@gmail.com | (+27) 63 068 8284</p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/lulama-zondo-298190337/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/NsizwaZondo" target="_blank"><i class="fab fa-github"></i></a>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><strong>Phone:</strong> (+27) 63 068 8284</li>
+          <li><strong>Email:</strong> <a href="mailto:zondolulama49@gmail.com">zondolulama49@gmail.com</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/lulama-zondo-298190337/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/NsizwaZondo" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Send a Message</h3>
+        <form class="contact-form" action="mailto:zondolulama49@gmail.com" method="POST" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
-    <p>&copy; 2025 Lulama Nsizwa Zondo</p>
+
+    <div class="footer-bottom">
+      &copy; 2025 Lulama Nsizwa Zondo | All Rights Reserved
+    </div>
   </footer>
 </body>
 </html>
+
 
 
 
